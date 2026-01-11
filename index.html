@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bento Focus 学习导航</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="logo">
+          <span class="logo-emoji">📚</span>
+          <div>
+            <div class="logo-title">Bento Focus</div>
+            <div class="logo-sub">便当盒 · 聚焦学习</div>
+          </div>
+        </div>
+
+        <form class="search" id="searchForm">
+          <i class="ri-search-line"></i>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="今天想学点什么？(Cmd + K)"
+            autocomplete="off"
+          />
+          <button class="search-btn" type="submit">搜索</button>
+          <div class="search-shortcuts">
+            <button type="button" class="tag" data-provider="google">Google</button>
+            <button type="button" class="tag" data-provider="stackoverflow">
+              StackOverflow
+            </button>
+            <button type="button" class="tag" data-provider="github">GitHub</button>
+          </div>
+        </form>
+
+        <div class="header-right">
+          <div class="status">
+            <div class="status-label">现在</div>
+            <div class="status-value" id="time">08:30</div>
+          </div>
+          <div class="status">
+            <div class="status-label">天气</div>
+            <div class="status-value">☀️ 26°C</div>
+          </div>
+          <div class="status">
+            <div class="status-label">番茄钟</div>
+            <div class="status-value">进行中 18:20</div>
+          </div>
+          <button class="theme-toggle" id="themeToggle" type="button">
+            <i class="ri-sun-line"></i>
+          </button>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card dashboard">
+          <div class="card-header">
+            <h2>当前进度</h2>
+            <span class="chip">React 进阶</span>
+          </div>
+          <p class="card-desc">正在学习：React Hooks 与性能优化</p>
+          <div class="progress">
+            <div class="progress-bar" style="width: 45%"></div>
+          </div>
+          <div class="progress-meta">
+            <span>进度 45%</span>
+            <span>预计完成 3 天</span>
+          </div>
+          <button class="primary-btn">继续学习</button>
+        </section>
+
+        <section class="card tools">
+          <div class="card-header">
+            <h2>常用工具</h2>
+            <span class="chip">快捷入口</span>
+          </div>
+          <div class="tool-grid">
+            <a class="tool" href="https://chat.openai.com" target="_blank" rel="noreferrer">
+              <i class="ri-chat-3-line"></i>
+              <span>ChatGPT</span>
+            </a>
+            <a class="tool" href="https://github.com" target="_blank" rel="noreferrer">
+              <i class="ri-github-line"></i>
+              <span>GitHub</span>
+            </a>
+            <a
+              class="tool"
+              href="https://translate.google.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="ri-translate-2"></i>
+              <span>翻译</span>
+            </a>
+            <a class="tool" href="https://www.notion.so" target="_blank" rel="noreferrer">
+              <i class="ri-sticky-note-line"></i>
+              <span>Notion</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="card navigator">
+          <div class="card-header">
+            <h2>学习导航</h2>
+            <span class="chip">分类</span>
+          </div>
+          <div class="nav-body">
+            <ul class="nav-list" id="navList">
+              <li data-title="CS 基础" data-desc="算法、操作系统、网络与数据库" data-links="LeetCode, CS-Notes, 计算机网络">
+                CS 基础
+              </li>
+              <li data-title="前端工程" data-desc="框架、工程化、性能优化" data-links="MDN, Vite, React 官方">
+                前端
+              </li>
+              <li data-title="AI 绘画" data-desc="生成式模型、提示词与实战" data-links="Midjourney, Stable Diffusion, Civitai">
+                AI 绘画
+              </li>
+              <li data-title="英语阅读" data-desc="每日阅读、词汇与写作" data-links="Medium, The Economist, Grammarly">
+                英语阅读
+              </li>
+            </ul>
+            <div class="nav-detail" id="navDetail">
+              <div class="nav-title">CS 基础</div>
+              <p>算法、操作系统、网络与数据库</p>
+              <div class="nav-links">LeetCode · CS-Notes · 计算机网络</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card resources">
+          <div class="card-header">
+            <h2>资源聚合</h2>
+            <span class="chip">Rich Link</span>
+          </div>
+          <div class="rich-links">
+            <a class="rich" href="https://developer.mozilla.org" target="_blank" rel="noreferrer">
+              <div class="rich-logo">MDN</div>
+              <div>
+                <div class="rich-title">MDN Web Docs</div>
+                <div class="rich-desc">Web 开发者的圣经</div>
+              </div>
+            </a>
+            <a class="rich" href="https://devdocs.io" target="_blank" rel="noreferrer">
+              <div class="rich-logo">DD</div>
+              <div>
+                <div class="rich-title">DevDocs</div>
+                <div class="rich-desc">API 文档聚合搜索</div>
+              </div>
+            </a>
+            <a class="rich" href="https://stackoverflow.com" target="_blank" rel="noreferrer">
+              <div class="rich-logo">SO</div>
+              <div>
+                <div class="rich-title">StackOverflow</div>
+                <div class="rich-desc">问题讨论与解决方案</div>
+              </div>
+            </a>
+            <a class="rich" href="https://vercel.com" target="_blank" rel="noreferrer">
+              <div class="rich-logo">VC</div>
+              <div>
+                <div class="rich-title">Vercel</div>
+                <div class="rich-desc">快速部署前端项目</div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="card inspiration">
+          <div class="card-header">
+            <h2>灵感胶囊</h2>
+            <span class="chip">今日一句</span>
+          </div>
+          <blockquote>
+            “每天进步 1%，一年后你会强大 37 倍。”
+          </blockquote>
+          <div class="capsule-meta">GitHub 今日热榜：astro / ai / llm-tooling</div>
+        </section>
+
+        <section class="card reading">
+          <div class="card-header">
+            <h2>深度阅读</h2>
+            <span class="chip">沉浸区</span>
+          </div>
+          <div class="reading-grid">
+            <a class="reading-item" href="https://news.ycombinator.com" target="_blank" rel="noreferrer">
+              <div class="reading-title">Hacker News</div>
+              <div class="reading-desc">科技社区讨论</div>
+            </a>
+            <a class="reading-item" href="https://medium.com" target="_blank" rel="noreferrer">
+              <div class="reading-title">Medium</div>
+              <div class="reading-desc">高质量长文阅读</div>
+            </a>
+            <a class="reading-item" href="https://sspai.com" target="_blank" rel="noreferrer">
+              <div class="reading-title">少数派</div>
+              <div class="reading-desc">数字生活与效率</div>
+            </a>
+            <a class="reading-item" href="https://www.zlibrary.to" target="_blank" rel="noreferrer">
+              <div class="reading-title">Z-Library</div>
+              <div class="reading-desc">电子书资源</div>
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
