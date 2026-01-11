@@ -5,6 +5,10 @@ const navDetail = document.getElementById('navDetail');
 const searchInput = document.getElementById('searchInput');
 const searchForm = document.getElementById('searchForm');
 const providerButtons = document.querySelectorAll('.tag');
+const progressBar = document.getElementById('progressBar');
+const progressInput = document.getElementById('progressInput');
+const progressText = document.getElementById('progressText');
+const progressValue = document.getElementById('progressValue');
 
 const providers = {
   google: 'https://www.google.com/search?q=',
@@ -30,6 +34,14 @@ const applyTheme = (mode) => {
 const initTheme = () => {
   const saved = localStorage.getItem('theme');
   applyTheme(saved || 'light');
+};
+
+const updateProgress = (value) => {
+  const clamped = Math.min(100, Math.max(0, Number(value) || 0));
+  progressBar.style.width = `${clamped}%`;
+  progressText.textContent = `进度 ${clamped}%`;
+  progressValue.textContent = `${clamped}%`;
+  progressInput.value = String(clamped);
 };
 
 providerButtons.forEach((button) => {
@@ -79,6 +91,15 @@ themeToggle.addEventListener('click', () => {
   applyTheme(current === 'dark' ? 'light' : 'dark');
 });
 
+progressInput.addEventListener('input', () => {
+  const value = progressInput.value;
+  updateProgress(value);
+  localStorage.setItem('learningProgress', value);
+});
+
 updateTime();
 setInterval(updateTime, 1000 * 30);
 initTheme();
+
+const savedProgress = localStorage.getItem('learningProgress');
+updateProgress(savedProgress ?? 0);
